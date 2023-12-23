@@ -1,0 +1,24 @@
+<div>
+  <h2>Payment List</h2>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Facture ID</th>
+        <th>Total</th>
+        <th>Info Cart</th>
+        <th>Payment Method</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let payment of payments">
+        <td>{{ payment.paiementId }}</td>
+        <td>{{ payment.facture.id }}</td>
+        <td>{{ payment.total }}</td>
+        <td>{{ payment.infocart }}</td>
+        <td>{{ payment.methodePaiement }}</td>
+      </tr>
+    </tbody>
+    
+  </table>
+</div>

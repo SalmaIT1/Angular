@@ -1,0 +1,7 @@
+/* styles.css or your component-specific CSS file */
+tr.disabled {
+    pointer-events: none;
+    background-color: #ddd; /* Optional: Change the background color to visually indicate that it's disabled */
+    color: #777; /* Optional: Adjust text color for better readability */
+  }
+  

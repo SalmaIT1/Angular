@@ -1,0 +1,37 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Facture ID</th>
+      <th>Reference</th>
+      <th>Total</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let facture of factures">
+      <td>{{ facture.id }}</td>
+      <td>{{ facture.reference }}</td>
+      <td>{{ facture.total }}</td>
+      <td>{{ facture.dateFacture | date }}</td>
+      <td>{{ facture.statut }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="consulterFacture('' + facture.id)">Consulter</button>
+        <!-- Check if status is not "Payee" to show the Payer button -->
+        <button *ngIf="facture.statut !== 'Payee'" class="btn btn-success" (click)="payerFacture('' + facture.id)">Payer</button>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td><strong>Total:</strong></td>
+      <td>{{ calculateTotal() }}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <button class="btn btn-success">Payer Tout</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

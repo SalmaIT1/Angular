@@ -1,0 +1,48 @@
+<div class="row row-cols-1 row-cols-md-4 g-4">
+  <div class="col mb-3" *ngFor="let p of productOrders">
+    <div
+      class="card h-100 text-center border border-dark rounded"
+      style="border-radius: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3)"
+    >
+      <div class="card-body">
+        <a href="#">
+          <img
+            class="card-img-top rounded"
+            src="{{ p.product.imageart }}"
+            alt="{{ p.product.designation }}"
+            width="200"
+            height="300"
+          />
+        </a>
+        <!-- Divider -->
+        <hr class="my-3" />
+        <!-- Designation -->
+        <h6
+          class="font-italic"
+          style="color: rgb(27, 32, 172); font-family: 'Lucida Sans'"
+        >
+          {{ p.product.designation }}
+        </h6>
+        <!-- Price in bold -->
+        <h5
+          class="card-title"
+          style="color: rgb(91, 144, 171); font-size: small"
+        >
+          {{ p.product.prix }} TND
+        </h5>
+        <!-- Add to Cart button -->
+        <div class="row">
+          <div class="col-12">
+            <button
+              class="btn pink-background"
+              (click)="addProductToCart(p)"
+              [disabled]="p.product.qtestock === 0"
+            >
+              <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

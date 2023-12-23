@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Create Payment</h2>
+  <form (submit)="onSubmit()">
+    <div class="form-group">
+      <label for="factureId">Facture ID:</label>
+      <input type="text" id="factureId" name="factureId" [(ngModel)]="factureId" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+      <label for="total">Total:</label>
+      <input type="number" id="total" name="total" [(ngModel)]="total" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+      <label for="infocart">Info Cart:</label>
+      <input type="text" id="infocart" name="infocart" [(ngModel)]="infocart" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="methodePaiement">Payment Method:</label>
+      <select id="methodePaiement" name="methodePaiement" [(ngModel)]="methodePaiement" class="form-control" required>
+        <option value="VIREMENT">Virement</option>
+        <option value="CARTE_BANCAIRE">Carte Bancaire</option>
+        <option value="FLOUCI">Flouci</option>
+        <option value="D17">D17</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" >Submit</button>
+  </form>
+</div>

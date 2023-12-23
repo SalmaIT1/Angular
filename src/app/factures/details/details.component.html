@@ -1,0 +1,25 @@
+<div *ngIf="facture" class="card">
+    <div class="card-header">
+      <h2>Facture Details</h2>
+    </div>
+    <div class="card-body">
+      <p><strong>ID:</strong> {{ facture.id }}</p>
+      <p><strong>Reference:</strong> {{ facture.reference }}</p>
+      <p><strong>Quantity of Articles:</strong> {{ facture.qteArticle }}</p>
+      <p><strong>ID of Article:</strong> {{ facture.idArticle }}</p>
+      <div *ngIf="facture.listeArticlesAchetes">
+        <p><strong>List of Articles:</strong></p>
+        <ul>
+          <li *ngFor="let article of facture.listeArticlesAchetes">
+            <!-- Assuming each article has a property 'name', replace it with the actual property -->
+            {{ article.designation }}
+          </li>
+        </ul>
+      </div>
+      <p><strong>Total:</strong> {{ facture.total }}</p>
+      <p><strong>Date:</strong> {{ facture.dateFacture }}</p>
+      <p><strong>Statut:</strong> {{ facture.statut }}</p>
+      <!-- Add other details as needed -->
+    </div>
+  </div>
+  

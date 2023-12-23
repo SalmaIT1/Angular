@@ -1,0 +1,31 @@
+<div
+  class="card text-white bg-light mb-3"
+  style="max-width: 50rem"
+  id="htmlData"
+>
+  <div class="card-header bg-dark text-center">Shopping Cart</div>
+  <div class="card-body bg-dark">
+    <h5 class="card-title bg-dark">Total: {{ total }}</h5>
+    <hr />
+    <h6 class="card-title bg-dark">Items bought:</h6>
+    <ul>
+      <li *ngFor="let order of productAdded">
+        <div>{{ order.product.designation }}</div>
+        <input
+          type="number"
+          min="0"
+          max="{{ order.product.qtestock }}"
+          [(ngModel)]="order.quantity"
+          (click)="addTotal(order.product.prix, order.quantity)"
+        />
+      </li>
+    </ul>
+    <button
+      class="btn btn-light btn-block"
+      (click)="checkoutProduct()" *ngIf="this.authService.isLoggedIn"
+      [disabled]="productAdded.length === 0"
+    >
+      Checkout
+    </button>
+  </div>
+</div>
